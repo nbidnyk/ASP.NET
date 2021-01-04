@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ShopDBMContainer" CdmEntityContainer="ShopDBModel">
+    <EntitySetMapping Name="Candles">
+      <EntityTypeMapping TypeName="ShopDBM.Candles">
+        <MappingFragment StoreEntitySet="Candles">
+          <ScalarProperty Name="New_Price" ColumnName="New_Price" />
+          <ScalarProperty Name="Old_Price" ColumnName="Old_Price" />
+          <ScalarProperty Name="Id_Candle" ColumnName="Id_Candle" />
+          <ScalarProperty Name="Plase_of_origin" ColumnName="Plase_of_origin" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Material" ColumnName="Material" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+          <ScalarProperty Name="Fragrance" ColumnName="Fragrance" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Burning_time" ColumnName="Burning_time" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cost">
+      <EntityTypeMapping TypeName="ShopDBM.Cost">
+        <MappingFragment StoreEntitySet="Cost">
+          <ScalarProperty Name="Telephon" ColumnName="Telephon" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Id_Cost" ColumnName="Id_Cost" />
+          <ScalarProperty Name="Id_Candle" ColumnName="Id_Candle" />
+          <ScalarProperty Name="Id_Users" ColumnName="Id_Users" />
+          <ScalarProperty Name="Status_Cost" ColumnName="Status_Cost" />
+          <ScalarProperty Name="Column" ColumnName="Column" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Second_name" ColumnName="Second_name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Message">
+      <EntityTypeMapping TypeName="ShopDBM.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="Telephon" ColumnName="Telephon" />
+          <ScalarProperty Name="Id_Message" ColumnName="Id_Message" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Second_name" ColumnName="Second_name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Message1" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ShopDBM.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Telephon" ColumnName="Telephon" />
+          <ScalarProperty Name="Id_Users" ColumnName="Id_Users" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Second_name" ColumnName="Second_name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

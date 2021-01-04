@@ -1,0 +1,106 @@
+﻿@model IEnumerable<CandleShop.Models.Candles>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/CSS/Cost.css" rel="stylesheet" type="text/css" />
+    <title>Products</title>
+</head>
+<body>
+    <div class="topnav">
+        @if ((int)(int)Session["idUser"] >= 2 || (int)(int)Session["idUser"] == 0)
+        {
+            <a href=@Url.Action("Main","Home")>Главная</a>
+            <a href=@Url.Action("UserCost","Home")>Корзина</a>
+
+            <a href=@Url.Action("NewUser","Home")>Регистрация</a>
+        }
+        @if ((int)Session["idUser"] == 1@*|| (int)(int)Session["idUser"] == 2*@)
+{
+
+<a href=@Url.Action("Orders","Admin")>Заказы</a>
+}
+        @if ((int)Session["idUser"] == 2)
+        {
+
+            <a class="active" href=@Url.Action("Products","Admin")>Изменить товары</a>
+            <a href=@Url.Action("UsersStorage","Admin")>Пользователи</a>
+        }
+        <a href=@Url.Action("Login","Home")>Авторизация</a>
+    </div>
+
+    <table align="center" class="head">
+        <tr>
+            <th>image</th>
+            <th>id</th>
+            <th>name</th>
+            <th>material</th>
+            <th>plase_of_origin</th>
+            <th>quantity</th>
+            <th>time</th>
+            <th>new_price</th>
+            <th>old_price</th>
+        </tr>
+    </table>
+    <div class="Add">
+        <a href=@Url.Action("AddProd","Admin")>
+            <img src="~/Content/Img/rechargeable-battery.png" width="70px" height="50px" />
+        </a>
+    </div>
+    @{
+        foreach (var item in Model)
+        {
+            using (Html.BeginForm("ChangeProducts", "Admin", FormMethod.Post))
+            {
+                @*<from method='post' action='/Admin/ChangeProducts' >*@
+                <table>
+                    <tr align="top">
+                        <td align="center"><img src="~/Content/CandFolder/@item.Image" width="50px"></td>
+                        <td align="center">
+                            @item.Id_Candle
+                            <input name="id_candle" size="12" type="hidden" value="@item.Id_Candle">
+                        </td>
+                        <td align="center">
+                            <input name="name" size="12" type="text" value="@item.Product_name">
+                        </td>
+                        <td align="center">
+                            <input name="material" size="10" type="text" value="@item.Material">
+                        </td>
+                        <td align="center">
+                            <input name="plase_of_origin" size="10" type="text" value="@item.Plase_of_origin">
+                        </td>
+                        <td align="center">
+                            <input name="quantity" size="12" type="text" value="@item.Quantity" />
+                        </td>
+                        <td align="center">
+                            <input name="time" size="12" type="text" value="@item.Burning_time" />
+                        </td>
+                        <td align="center">
+                            <input name="new_price" size="12" type="text" value="@item.New_Price" />
+                        </td>
+                        <td align="center">
+                            <input name="old_price" size="12" type="text" value="@item.Old_Price" />
+                        </td>
+                        <td align="center">
+                            <a href="@Url.Action("DellCandle", "Admin", new {id_candle=item.Id_Candle})">
+                                <img src="~/Content/Img/delete.png" width="19" height="19" />
+                            </a>
+                            <br>
+                            <input class="button" name="redact" type="submit" value=" " style="background-image: url(../../Content/Img/checked.png); background-size: cover">
+                        </td>
+                    </tr>
+                </table>
+            }
+            @*</from>*@
+
+        }
+
+    }
+
+</body>
+</html>

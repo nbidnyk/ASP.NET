@@ -1,0 +1,140 @@
+﻿
+body {
+    background: linear-gradient(-45deg, #632F15, #632F15, burlywood, burlywood);
+    background-size: 400% 400%;
+    animation: gradient 16s ease infinite;
+    font-family: Courier New;
+}
+.box {
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: burlywood;
+    text-align: center;
+}
+    .box h1 {
+        color: #845013;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    .box input[type = "text"], .box input[type = "password"]{
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #632F15;
+        padding: 14px 10px;
+        width: 200px;
+        outline: none;
+        color: #845013;
+        border-radius: 10px;
+        transition: 0.25s;
+    }
+    .box input[type = "email"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #632F15;
+        padding: 14px 10px;
+        width: 200px;
+        outline: none;
+        color: #845013;
+        border-radius: 10px;
+        transition: 0.25s;
+    }
+        .box input[type = "text"]:focus, .box input[type = "password"]:focus, .box input[type = "email"] {
+            width: 280px;
+            border-color: #845013;
+        }
+    .box input[type = "submit"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #632F15;
+        padding: 14px 40px;
+        width: 200px;
+        outline: none;
+        color: #845013;
+        border-radius: 10px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+        .box input[type = "submit"]:hover {
+            background: #632F15;
+        }
+    .box p[type = "text"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+       
+        padding: 14px 40px;
+        width: 200px;
+        outline: none;
+        color: #845013;
+        border-radius: 10px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+p[type = "answer"] {
+    border: 0;
+    background: Maroon;
+    display: block;
+    margin: 10px auto;
+    border: 2px solid Maroon;
+    text-align: center;
+    padding: 14px 40px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+        .topnav {
+            background-color: #632F15;
+            overflow: hidden;
+            font: 14pt Courier New;
+        }
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 25px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+        /* Change the color of links on hover */
+        .topnav a:hover {
+            background-color: burlywood;
+            color: black;
+        }
+        /* Add a color to the active/current link */
+        .topnav a.active {
+            background-color: burlywood;
+            color: white;
+        }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/CSS/AutoForm.css" rel="stylesheet" type="text/css" />
+    <title>Form</title>
+</head>
+<body>
+    <div>
+        <div class="topnav">
+            <a href=@Url.Action("Main","Home")>Главная</a>
+            <a href=@Url.Action("UserCost","Home")>Корзина</a>
+            <a href=@Url.Action("Login","Home")>Авторизация</a>
+            <a href=@Url.Action("NewUser","Home")>Регистрация</a>
+            <a href=@Url.Action("Index","Home")>Товары</a>
+        </div>
+        <form action="/Home/FormForCost" id="loginform" method="post" name="loginform" class="box">
+            <h1>Заполните форму для покупки</h1>
+            <p>
+                <input required class="input" id="username" name="username" size="20" type="text" value="" placeholder="Логин" />
+            </p>
+            <p>
+                <input required class="input" id="email" name="email" size="20" type="email" value="" placeholder="Email" />
+
+            </p>
+            <p class="submit"><input class="button" name="login" type="submit" value="Buy" /></p>
+            
+        </form>
+    </div>
+</body>
+</html>

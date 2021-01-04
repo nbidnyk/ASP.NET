@@ -1,0 +1,124 @@
+﻿@model IEnumerable <CandleShop.Models.Candles>
+    @{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0" />
+        <meta charset="utf-8" />
+
+        <link href="/CSS/StyleBackground.css" rel="stylesheet" type="text/css" />
+        @*<link href="/CSS/StyleMenu.css" rel="stylesheet" type="text/css" />
+        *@
+        @*<link href="/CSS/main.css" rel="stylesheet" type="text/css" />*@
+
+        <title>CandleShop</title>
+    </head>
+    <body>
+        <div class="topnav">
+            @if ((int)(int)Session["idUser"] >= 2 || (int)(int)Session["idUser"] == 0)
+            {
+                <a class="active" href=@Url.Action("Main","Home")>Главная</a>
+                <a href=@Url.Action("UserCost","Home")>Корзина</a>
+
+                <a href=@Url.Action("NewUser","Home")>Регистрация</a>
+            }
+            @if ((int)Session["idUser"] == 1 @*|| (int)(int)Session["idUser"] == 2*@)
+            {
+
+                <a href=@Url.Action("Orders","Admin")>Заказы</a>
+            }
+            @if ((int)Session["idUser"] == 2)
+            {
+
+                <a href=@Url.Action("Products","Admin")>Изменить товары</a>
+                <a href=@Url.Action("UsersStorage","Admin")>Пользователи</a>
+            }
+            <a href=@Url.Action("Login","Home")>Авторизация</a>
+
+        </div>
+        @{
+            int a = 0, b = 0;
+            string message = "<tr></tr>";
+            // string message = "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
+        }
+        <table align="center" cellpadding: "6" cellspacing: "30">
+            @foreach (var item in Model)
+            {
+
+                @*<tr>*@
+                <td align="center" @*border-opacity: .3;*@>
+                    <div class='candle'>
+                        @*<a class='cost' href=@Url.Action("ThisCandle", "Home" , new { id_candle=item.Id_Candle}) style='text-decoration:none;'>*@
+                        <img src="/Content/CandFolder/@item.Image" width="200px" align="center" height="220px" 
+                             />
+                        @*</a>*@
+                        <p align=center class='title'>@item.Product_name</p>
+                        <p align=center class='title'> Материал: @item.Material</p>
+                        <p align=center class='title'>В наличии: @item.Quantity</p>
+                        <p align=center class='title'>Страна: @item.Plase_of_origin</p>
+                        <p align=center class='title'>Время горения: @item.Burning_time</p>
+                        <p alidn=center class='cost'>
+                            <font style='text-decoration: line-through; font-size:18px; margin-bottom: 3px' color="brown">
+                                @item.Old_Price
+                            </font>
+                            <font font-size:22px; color="cornsilk">
+                                <a class='cost' @*href='#'*@>
+                                    @item.New_Price&#8372;
+                                </a>
+                            </font>
+                        </p>
+
+
+                        <p style='margin:0' align=center>
+                            @if ((int)Session["idUser"] != 0)
+                            {
+                                if(@item.Quantity != 0)
+                                {
+                                    <a href=@Url.Action("Add_Cost", "Home", new { User_Id = (int)Session["idUser"], Candle_Id = @item.Id_Candle })>
+                                        <img src='~/Content/Img/buy1.png' id='button' title="В корзину" height="40" width="40" border-radius: 100px>
+                                    </a>
+                                    <a href=@Url.Action("Delete_Cost", "Home", new { id_user = (int)Session["idUser"], id_candle = @item.Id_Candle })>
+                                        <img src='~/Content/Img/delete.png' id='button' title="Удалить из корзины" height="40" width="40" border-radius: 100px>
+                                    </a>
+                                }
+                            }
+                            else
+                            {
+                            <a href=@Url.Action("Login","Home",new { User_Id = (int)Session["idUser"]})><img src='~/Content/Img/buy1.png' id='button' title="Авторизуйтесь" height="40" width="40"></a>
+                            }
+
+                        </p><br>
+                    </div>
+                </td>
+                @*</tr>*@
+                b++;
+                a++;
+
+
+                if (a == 4)
+                {
+                    @Html.Raw("</tr>" + message + "<tr style='vertical-align: top'>")
+                    a = 0;
+                }
+
+                if (b == 8)
+                {
+                    @Html.Raw("</tr>")
+                    break;
+                }
+
+
+
+            }
+        </table>
+
+
+
+        @*<ul class='sub_nav'> @Html.Action("Nav_Material", "Home") </ul>*@
+
+    </body>
+</html>

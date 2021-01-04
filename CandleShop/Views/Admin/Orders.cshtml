@@ -1,0 +1,87 @@
+﻿@model IEnumerable<CandleShop.Models.Cost>
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <link href="~/CSS/Cost.css" rel="stylesheet" type="text/css" />
+    <title>Orders</title>
+</head>
+<body>
+    <div class="topnav">
+
+
+        @if ((int)(int)Session["idUser"] >= 2 || (int)(int)Session["idUser"] == 0)
+        {
+            <a href=@Url.Action("Main","Home")>Главная</a>
+            <a href=@Url.Action("UserCost","Home")>Корзина</a>
+
+            <a href=@Url.Action("NewUser","Home")>Регистрация</a>
+        }
+        @if ((int)Session["idUser"] == 1 @*|| (int)(int)Session["idUser"] == 2*@)
+        {
+                //if (count ==0)
+                {
+                    @*<a class="isOrder" href=@Url.Action("Orders", "Admin")>Заказы</a>*@
+                }
+                //else
+                {
+                    <a class="active" href=@Url.Action("Orders", "Admin")>Заказы</a>
+                }
+
+
+        }
+        @if ((int)Session["idUser"] == 2)
+        {
+
+            <a href=@Url.Action("Products","Admin")>Изменить товары</a>
+            <a href=@Url.Action("UsersStorage","Admin")>Пользователи</a>
+        }
+
+        <a href=@Url.Action("Login","Home")>Авторизация</a>
+
+    </div>
+    <div>
+        @{
+            int a = 0, b = 0;
+            string message = "<tr></tr>";
+            // string message = "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
+        }
+
+        <table align="center" cellpadding: "6" cellspacing: "30">
+            <tr>
+                <th>Номер заказа</th>
+                <th>Номер товара</th>
+                <th>Никнейм</th>
+                <th>Email</th>
+            </tr>
+            @foreach (var array in Model)
+            {
+                <tr>
+                    <td align="center">
+                        <p align=center class='title'>@array.Id_Cost</p>
+                    </td>
+                    <td><p align=center class='title'>@array.Id_Candle</p></td>
+                    <td><p align=center class='title'>@array.Name</p></td>
+                    <td><p align=center class='title'>@array.Email</p></td>
+
+                </tr>
+            }
+        </table>
+
+    </div>
+    <div class="checked" align="center">
+            <a href=@Url.Action("Take_Order", "Admin")>
+                <img src='~/Content/Img/checked.png' id='button' title="Take order" height="40" width="40" align="center">
+            </a>
+    </div>
+
+</body>
+</html>

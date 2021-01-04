@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CandleShop.Models.Users>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/CSS/Cost.css" rel="stylesheet" type="text/css" />
+    <title></title>
+</head>
+<body>
+    <div class="topnav">
+        @if ((int)(int)Session["idUser"] >= 2 || (int)(int)Session["idUser"] == 0)
+        {
+            <a  href=@Url.Action("Main","Home")>Главная</a>
+            <a href=@Url.Action("UserCost","Home")>Корзина</a>
+
+            <a href=@Url.Action("NewUser","Home")>Регистрация</a>
+        }
+        @if ((int)Session["idUser"] == 1 || (int)(int)Session["idUser"] == 2)
+        {
+
+            <a href=@Url.Action("Orders","Admin")>Заказы</a>
+        }
+        @if ((int)Session["idUser"] == 2)
+        {
+
+            <a href=@Url.Action("Products","Admin")>Изменить товары</a>
+            <a class="active" href=@Url.Action("UsersStorage","Admin")>Пользователи</a>
+        }
+        <a href=@Url.Action("Login","Home")>Авторизация</a>
+    </div>
+
+    <section width="100%" height="auto">
+        <table align="center" width="100%" height="auto">
+            <tr>
+                <th>Никнейм</th>
+                <th>Id</th>
+                <th>Телефон</th>
+            </tr>
+
+            @foreach (var array in Model)
+            {
+                if (array.Id_Users > 2)
+                {
+                    <tr>
+                        <td align="center" >
+                            <p align=center class='title'>@array.Username</p>
+                        </td>
+                        <td><p align=center class='title'>@array.Id_Users</p></td>
+                        <td><p align=center class='title'>@array.Telephon</p></td>
+                        <td>
+                            <a href="@Url.Action("DellUser", "Admin", new { id_user = array.Id_Users })">
+                                <img src="~/Content/Img/delete.png" width="19" height="19" />
+                            </a>
+                        </td>
+                    </tr>
+                    }
+
+                }
+
+            }
+        </table>
+
+    </section>
+</body>
+</html>

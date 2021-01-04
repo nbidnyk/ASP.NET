@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ShopDBM" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Candles">
+    <Key>
+      <PropertyRef Name="Id_Candle" />
+    </Key>
+    <Property Name="Id_Candle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Plase_of_origin" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Material" Type="nvarchar" MaxLength="50" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="Height" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="nvarchar" MaxLength="50" />
+    <Property Name="Diameter" Type="nvarchar" MaxLength="50" />
+    <Property Name="Old_Price" Type="real" />
+    <Property Name="Fragrance" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="Burning_time" Type="nvarchar" MaxLength="50" />
+    <Property Name="New_Price" Type="real" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Cost">
+    <Key>
+      <PropertyRef Name="Id_Cost" />
+    </Key>
+    <Property Name="Id_Cost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Candle" Type="int" />
+    <Property Name="Id_Users" Type="int" />
+    <Property Name="Status_Cost" Type="nvarchar" MaxLength="50" />
+    <Property Name="Column" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Second_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telephon" Type="nvarchar" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id_Message" />
+    </Key>
+    <Property Name="Id_Message" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Second_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telephon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Message" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id_Users" />
+    </Key>
+    <Property Name="Id_Users" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Second_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telephon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="50" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="Хранилище ShopDBMContainer">
+    <EntitySet Name="Candles" EntityType="Self.Candles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cost" EntityType="Self.Cost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

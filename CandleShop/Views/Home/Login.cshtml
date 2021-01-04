@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/CSS/LoginForm.css" rel="stylesheet" type="text/css" />
+    <title>Login</title>
+</head>
+<body>
+
+    <div class="topnav">
+        @if ((int)(int)Session["idUser"] >= 2 || (int)(int)Session["idUser"] == 0)
+        {
+            <a  href=@Url.Action("Main","Home")>Главная</a>
+            <a href=@Url.Action("UserCost","Home")>Корзина</a>
+
+            <a href=@Url.Action("NewUser","Home")>Регистрация</a>
+        }
+        @if ((int)Session["idUser"] == 1  @*(int)(int)Session["idUser"] == 2*@)
+        {
+
+            <a href=@Url.Action("Orders","Admin")>Заказы</a>
+        }
+        @if ((int)Session["idUser"] == 2)
+        {
+
+            <a href=@Url.Action("Products","Admin")>Изменить товары</a>
+            <a href=@Url.Action("UsersStorage","Admin")>Пользователи</a>
+        }
+        <a class="active" href=@Url.Action("Login","Home")>Авторизация</a>
+    </div>
+
+    @if (Session["Status_autrz"] != null)
+    {
+        <p type="answer">Не верно введенные данные</p>
+    }
+        <form action="/Home/Authorization" id="loginform" method="post" name="loginform" class="box">
+            <h1>Авторизация</h1>
+            <p>
+                <input required class="input" id="username" name="username" size="20" type="text" value="" placeholder="Логин"/>
+            </p>
+            <p>
+                <input required class="input" id="password" name="password" size="20" type="password" value="" placeholder="Пароль"/>
+
+            </p>
+                <p class="submit"><input class="button" name="login" type="submit" value="Log In"/></p>
+                <p class="regtext" type="text">Ещё не зарегестрированы?<a href="@Url.Action("NewUser", "Home")">Регистрация</a></p>                     
+        </form>
+
+</body>
+</html>

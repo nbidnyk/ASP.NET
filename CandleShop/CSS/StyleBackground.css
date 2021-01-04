@@ -1,0 +1,81 @@
+﻿
+body {
+    background: linear-gradient(-45deg, #632F15, #632F15, burlywood, burlywood);
+    background-size: 400% 400%;
+    animation: gradient 16s ease infinite;
+}
+.topnav {
+    background-color: #632F15;
+    overflow: hidden;
+    font: 14pt Courier New;
+}
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 17px;
+}
+/* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: burlywood;
+        color: black;
+    }
+/* Add a color to the active/current link */
+    .topnav a.active {
+        background-color: burlywood;
+        color: white;
+    }
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+h1{
+
+}
+table {
+    width: 100%;
+    margin: auto;
+    
+}
+td {
+    border-image: round;
+    /*background: rgba(244, 164, 96, 0.1);*/
+    font: 14pt Courier New;
+}
+img {
+    align-content: center;
+    border-radius: 5px
+}
+
+
+/*#sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background: #57626F;
+    border-right: 4px solid #E0E5Ea;
+    z-index: 2;
+
+}
+
+    #sidebar ul li:first-child {
+        position: fixed;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        font-size: 1.95em;
+        list-style: none;
+        padding: 25px, 10px, 10px, 10px;
+    }*/

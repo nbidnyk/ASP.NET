@@ -1,0 +1,85 @@
+﻿@{ foreach (var item in Model)
+    { @Html.Raw("<from method='post' action='/Admin/ChangeProducts' >")
+    <table align="left" width="100%" height="auto">
+        <tr align='top'>
+
+            <td align="center">
+                <img src="/Content/CandFolder/@item.Image" width="50px" />
+            </td>
+            <td align="center" width="5px">
+                @item.Id_Candle
+                <input name="id_candle" size="12" type="hidden" value="@item.Id_Candle" />
+            </td>
+            <td align="center" width="10px">
+                <input name="name" size="12" type="text" value="@item.Product_name" />
+            </td>
+            <td align="center" width="8px">
+                <input name="material" size="12" type="text" value="@item.Material" />
+            </td>
+            <td align="center">
+                <input name="plase_of_origin" size="12" type="text" value="@item.Plase_of_origin" />
+            </td>
+            <td align="center">
+                <input name="quantity" size="12" type="text" value="@item.Quantity" />
+            </td>
+            <td align="center">
+                <input name="time" size="12" type="text" value="@item.Burning_time" />
+            </td>
+            <td align="center">
+                <input name="new_price" size="12" type="text" value="@item.New_Price" />
+            </td>
+            <td align="center">
+                <input name="old_price" size="12" type="text" value="@item.Old_Price" />
+            </td>
+            <td align="center">
+                <a href="@Url.Action("DellCandle", "Admin", new { id_candle=item.Id_Candle})">
+                    <img src="~/Content/Img/delete.png" width="19" height="19" />
+                </a>
+
+                <br>
+                <p class="submit">
+                    <input class="button" width="27" height="23" type="submit" value=""
+                           style="background-image: url(../../Content/Img/checked.png); background-size: cover" />
+                </p>
+            </td>
+        </tr>
+    </table>
+    @Html.Raw("</form>")
+}
+
+}
+
+@{
+    foreach (var item in Model)
+    {
+        <from action='/Admin/ChangeProducts' method='post'>
+            <table>
+                <tr align="top">
+                    <td align="center"><img src="~/Content/CandFolder/@item.Image" width="50px"></td>
+                    <td align="center">
+                        @item.Id_Candle
+                        <input name="id_candle" size="12" type="hidden" value="@item.Id_Candle">
+                    </td>
+                    <td align="center">
+                        <input name="name" size="12" type="text" value="@item.Product_name">
+                    </td>
+                    <td align="center">
+                        <input name="material" size="10" type="text" value="@item.Material">
+                    </td>
+                    <td align="center">
+                        <input name="plase_of_origin" size="10" type="text" value="@item.Plase_of_origin">
+                    </td>
+                    <td align="center">
+                        <a href="@Url.Action("DellCandle", "Admin", new {id_candle=item.Id_Candle})">
+                            <img src="~/Content/Img/delete.png" width="19" height="19" />
+                        </a>
+                        <br>
+                        <input class="button" name="redact" type="submit" value=" " style="background-image: url(../../Content/Img/checked.png); background-size: cover">
+                    </td>
+                </tr>
+            </table>
+        </from>
+
+    }
+
+}

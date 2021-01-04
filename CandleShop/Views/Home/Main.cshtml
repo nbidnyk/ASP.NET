@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <link href="~/CSS/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/CSS/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="~/JS/sweetalert2.min.js"></script>
+    <script src="~/JS/AlertMain.js"></script>
+    <title>Main</title>
+</head>
+<body>
+
+    <section class="home">
+        <div class="topnav">
+            @if ((int)(int)Session["idUser"] >= 2 || (int)(int)Session["idUser"] == 0)
+            {
+                <a class="active" href=@Url.Action("Main","Home")>Главная</a>
+                <a href=@Url.Action("UserCost","Home")>Корзина</a>
+
+                <a href=@Url.Action("NewUser","Home")>Регистрация</a>
+            }
+            @if ((int)Session["idUser"] == 1 || (int)(int)Session["idUser"] == 2)
+            {
+
+                <a href=@Url.Action("Orders","Admin")>Заказы</a>
+            }
+            @if ((int)Session["idUser"] == 2)
+            {
+
+                <a href=@Url.Action("Products","Admin")>Изменить товары</a>
+                <a href=@Url.Action("UsersStorage","Admin")>Пользователи</a>
+            }
+
+            <a href=@Url.Action("Login","Home")>Авторизация</a>
+        </div>
+        <div class="home__video">
+            <video width="100%" height="auto" src="~/Content/Img/burnsfast.mp4" autoplay loop muted></video>
+        </div>
+        <div class="home__content" align="center">
+            <h1>Создай уют в своей комнате</h1>
+            <p>Свечи от компании AromaRelax</p>
+        </div>
+
+        
+
+    </section>
+
+</body>
+</html>

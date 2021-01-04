@@ -1,0 +1,78 @@
+﻿@model IEnumerable <CandleShop.Models.Candles>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/CSS/Cost.css" rel="stylesheet" type="text/css" />
+    <title></title>
+</head>
+<body>
+
+    <div>
+        @{
+            int a = 0, b = 0;
+            string message = "<tr></tr>";
+            // string message = "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
+        }
+
+        <table align="left" cellpadding: "6" cellspacing: "30">
+            @foreach (var array in Model)
+            {
+                <td align="center" @*border-opacity: .1;*@>
+                    <div class='candle'>
+                        <img src="/Content/CandFolder/@array.Image" width="200px" align="center" height="220px" />
+                        <p align=center class='title'>@array.Product_name</p>
+                        @*<p align=center class='title'>Время горения: @array.Burning_time</p>*@
+                        <p alidn=center class='cost'>
+                            <font style='text-decoration: line-through; font-size:18px; margin-bottom: 3px' color="brown">
+                                @array.Old_Price
+                            </font>
+                            <font font-size:22px; color="cornsilk">
+                                <a class='cost'>
+                                    @array.New_Price&#8372;
+                                </a>
+                            </font>
+                            <a href=@Url.Action("Delete_Cost", "Home" , new { id_user=(int)Session["idUser"], id_candle = @array.Id_Candle}
+                              )>
+                                <img src='~/Content/Img/delete.png' id='button' title="Удалить из корзины" height="40" width="40" border-radius: 100px>
+                            </a>
+                    </div>
+                </td>
+                b++;
+                a++;
+                if (a == 2)
+                {
+                    @Html.Raw("</tr>" + message + "<tr style='vertical-align: top'>")
+                    a = 0;
+                }
+
+                if (b == 8)
+                {
+                    @Html.Raw("</tr>")
+                    break;
+                }
+            }
+        </table>
+
+        <p type="buy">
+            <a href=@Url.Action("Buy","Home",  new { User_Id = (int)Session["idUser"]})>
+                <img src='~/Content/Img/buyCost.png' id='button' title="Удалить из корзины" height="40" width="40" border-radius: 100px>
+            </a>
+        </p>
+        @{ float sum = 0;}
+        @foreach (var array in Model)
+        {
+            sum = sum + (float)@array.New_Price;
+        }
+        <p type="sum">Сумма:@sum гривен</p>
+        <p type="return"><a href=@Url.Action("Index","Home") align="center">
+                             <img src='~/Content/Img/return.png' id='button' height="40" width="40" border-radius: 100px>
+             </a></p>
+    </div>
+</body>
+</html>

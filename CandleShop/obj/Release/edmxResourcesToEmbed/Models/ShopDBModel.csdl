@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopDBM" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Candles">
+    <Key>
+      <PropertyRef Name="Id_Candle" />
+    </Key>
+    <Property Name="Id_Candle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Plase_of_origin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Height" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diameter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fragrance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Burning_time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Old_Price" Type="Single" />
+    <Property Name="New_Price" Type="Single" />
+    <Property Name="Quantity" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Cost">
+    <Key>
+      <PropertyRef Name="Id_Cost" />
+    </Key>
+    <Property Name="Id_Cost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Candle" Type="Int32" />
+    <Property Name="Id_Users" Type="Int32" />
+    <Property Name="Status_Cost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Column" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Second_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephon" Type="String" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id_Message" />
+    </Key>
+    <Property Name="Id_Message" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Second_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephon" Type="String" />
+    <Property Name="Message1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id_Users" />
+    </Key>
+    <Property Name="Id_Users" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Second_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephon" Type="String" />
+    <Property Name="Username" Type="String" />
+    <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ShopDBModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Candles" EntityType="Self.Candles" />
+    <EntitySet Name="Cost" EntityType="Self.Cost" />
+    <EntitySet Name="Message" EntityType="Self.Message" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/CSS/LoginForm.css" rel="stylesheet" type="text/css" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form enctype="multipart/form-data" action="/Admin/AddProd" id="registerform" method="post" class="box">
+            <h1>Добавить новый товар</h1>
+            <p>
+                <input required class="input" id="image" name="image" size="32" type="text" value="" placeholder="image" />
+            </p>
+            <p>
+                <input required class="input" id="name" name="name" size="32" type="text" value="" placeholder="name" />
+            </p>
+            <p>
+                <input required class="input" id="material" name="material" size="20" type="text" value="" placeholder="material" />
+            </p>
+            <p>
+                <input required class="input" id="plase_of_origin" name="plase_of_origin" size="32" type="text" value="" placeholder="plase_of_origin" />
+            </p>
+            <p>
+                <input required class="input" id="quantity" name="quantity" size="32" type="text" value="" placeholder="quantity" />
+            </p>
+            <p>
+                <input required class="input" id="time" name="time" size="50" type="text" value="" placeholder="time" />
+            </p>
+            <p>
+                <input required class="input" id="new_price" name="new_price" size="32" type="text" value="" placeholder="new_price" />
+            </p>
+            <p>
+                <input required class="input" id="old_price" name="old_price" size="32" type="text" value="" placeholder="old_price" />
+            </p>
+            <p class="submit"><input class="button" id="register" name="register" type="submit" value="Добавить товар" /></p>
+        </form>
+    </div>
+</body>
+</html>
